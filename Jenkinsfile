@@ -1,4 +1,9 @@
 pipeline {
+	environment {
+    	registry = "jeremypunsalandotcom/projectscheduler"
+    	registryCredential = ‘dockerhub’
+    	dockerImage = ''
+	}
     agent {
         docker {
             image 'maven:3-alpine' 
@@ -21,5 +26,27 @@ pipeline {
                 }
             }
         }
+        stage('Image Build') {
+      		steps{
+        		script {
+          			dockerImage = docker.build registry + ":$BUILD_NUMBER"
+        		}
+      		}
+    	}
+    	stage('Image Deploy') {
+      		steps{
+        		script {
+          			docker.withRegistry( '', registryCredential ) {
+            			dockerImage.push()
+          			}
+        		}
+      		}
+    	}
+    	stage('Image Delete') {
+      		steps{
+        		sh "docker rmi $registry:$BUILD_NUMBER"
+      		}
+    	}
+    	
     }
 }
