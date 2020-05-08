@@ -1,7 +1,7 @@
 pipeline {
 	environment {
     	registry = "jeremypunsalandotcom/projectscheduler"
-    	registryCredential = ‘dockerhub’
+    	registryCredential = 'dockerhub'
     	dockerImage = ''
 	}
     agent {
