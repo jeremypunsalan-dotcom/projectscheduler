@@ -19,7 +19,6 @@ import com.jeremypunsalan.takehome.projectscheduler.builders.TaskBuilder;
 import com.jeremypunsalan.takehome.projectscheduler.builders.TaskViewBuilder;
 import com.jeremypunsalan.takehome.projectscheduler.entities.Task;
 import com.jeremypunsalan.takehome.projectscheduler.entities.TaskDependencies;
-import com.jeremypunsalan.takehome.projectscheduler.repository.ProjectTasksRepository;
 import com.jeremypunsalan.takehome.projectscheduler.repository.TaskDependenciesRepository;
 import com.jeremypunsalan.takehome.projectscheduler.repository.TaskRepository;
 import com.jeremypunsalan.takehome.projectscheduler.view.ProjectView;

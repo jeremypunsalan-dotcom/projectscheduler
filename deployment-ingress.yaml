@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: projectscheduler-api
+spec:
+  backend:
+    serviceName: projectscheduler
+    servicePort: 8081
+  rules:
+  - http:
+      paths:
+      - backend:
+          serviceName: projectscheduler
+          servicePort: 8081
